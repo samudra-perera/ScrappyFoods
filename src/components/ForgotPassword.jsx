@@ -4,9 +4,8 @@ import { useAuth } from "../context/AuthContext";
 import { AuthProvider } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const ForgotPassword = () => {
   const emailRef = useRef();
-  const passwordRef = useRef();
   const { login } = useAuth();
 
   const [error, setError] = useState("");
@@ -19,7 +18,7 @@ const Login = () => {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+    //   await login(emailRef.current.value, passwordRef.current.value);
       navigate('/dashboard')
     } catch {
       setError("Failed to create an account");
@@ -37,7 +36,7 @@ const Login = () => {
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
               <Card.Body>
-                <h2 className="text-center mb-4">Log In</h2>
+                <h2 className="text-center mb-4">Password Reset</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handlesubmit}>
                   <Form.Group id="email">
@@ -48,24 +47,16 @@ const Login = () => {
                       required
                     ></Form.Control>
                   </Form.Group>
-                  <Form.Group id="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      ref={passwordRef}
-                      required
-                    ></Form.Control>
-                  </Form.Group>
                   <Button
                     type="submit"
                     className="w-100 mt-4"
                     disabled={loading}
                   >
-                    Login
+                    Reset Password
                   </Button>
                 </Form>
                 <div className="w-100 text-center mt-2">
-                  <Link to='/forgot-password'>Forgot Password</Link>
+                  <Link to='/login'>Login</Link>
                 </div>
               </Card.Body>
             </Card>
@@ -79,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword

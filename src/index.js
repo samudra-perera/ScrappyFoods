@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import { AuthProvider } from "./context/AuthContext";
 import App from "./components/App";
 import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

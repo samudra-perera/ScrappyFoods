@@ -7,15 +7,20 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { AuthProvider } from "./context/AuthContext";
 import App from "./components/App";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App/>
+    path: "/",
+    element: <App />,
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/signup",

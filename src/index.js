@@ -6,10 +6,15 @@ import Dashboard from "./components/Dashboard";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { AuthProvider } from "./context/AuthContext";
+import App from "./components/App";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
+    element: <App/>
+  },
+  {
+    path: "/dashboard",
     element: <Dashboard />,
   },
   {

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Card, Form, Button, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { AuthProvider } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const emailRef = useRef();
@@ -77,7 +78,7 @@ const Signup = () => {
               </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-              Already have an account? Log In
+              Already have an account? <Link to='/login'>Log In</Link> 
             </div>
           </div>
         </Container>
